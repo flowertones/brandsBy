@@ -8,12 +8,10 @@
 import UIKit
 
 class BrandListController: UIViewController {
-
-
     @IBOutlet weak var collectionView: UICollectionView!
         var brandContent: BrandContent!
 
-    private var sections = MockData.pageData
+    private var sections = [MockData.categories, MockData.content]
     
     
     override func viewDidLoad() {

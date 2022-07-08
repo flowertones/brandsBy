@@ -21,6 +21,4 @@ class ContentController: UIViewController {
             nameLabel.text = brand.name
         }
     }
-
-
 }

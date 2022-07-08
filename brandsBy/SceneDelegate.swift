@@ -22,9 +22,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 
-var global: ListSection = .categories([ListItem]()) {
-    
-    willSet {
-        print(newValue)
-    }
-}
+var globalCategories = [String]()

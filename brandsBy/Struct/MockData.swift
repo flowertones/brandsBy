@@ -7,10 +7,13 @@
 
 import Foundation
 struct MockData {
-    static var pageData: [ListSection] = [categories, content]
+    static let pageData: [ListSection] = {
+        return [ListSection.categories(globalCategories.map({ .init(title: $0, image: nil)})), content]
+    }()
     
+//    повторно не читается, причина не ясна
     static var categories: ListSection = {
-        global
+        return ListSection.categories(globalCategories.map({ .init(title: $0, image: nil)})) 
     }()
 
     static var content: ListSection = {

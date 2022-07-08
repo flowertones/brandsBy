@@ -9,13 +9,11 @@ import UIKit
 
 class HomeController: UIViewController {
     
-//    var brandContent: BrandContent?
+    //    var brandContent: BrandContent?
     var categories = [""]
     var brandArray = [BrandContent]()
     @IBOutlet weak var popularCollectionView: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,47 +21,26 @@ class HomeController: UIViewController {
         popularCollectionView.dataSource = self
         popularCollectionView.delegate = self
         
-//        NetworkManager.getBrand { [weak self] result in
-//            guard let self = self else { return }
-//            self.nameLabel.text = result.name
-//            self.categories = result.categories ?? []
-//            self.brandArray.append(result)
-//            print(self.categories)
-            
-//            NetworkManager.getBrand { [weak self] result in
-//                guard let self = self else { return }
-//                print("okey")
-//                self.brandArray = result
-//
-//            } failureBlock: {
-//                print("oshibka")
-//            }
-  
         NetworkManager.getBrand { brand in
             self.brandArray = brand
-            print(self.brandArray.count)
             var allCategories = [String]()
             brand.forEach({ $0.categories.forEach({ allCategories.append($0)})})
             print(Set(allCategories.map({$0})))
-            let mySet = Set<String>()
-            let myList = Array(mySet.union(allCategories.map({$0}))).map({ ListItem(title: $0, image: "")})
-            global = ListSection.categories(myList)
+//            let myList = Array(Set<String>().union(allCategories.map({$0}))).map({ ListItem(title: $0, image: "")})
+//            globalCategories = ListSection.categories(myList)
+            globalCategories = Array(Set<String>().union(allCategories.map({$0})))
+
             self.popularCollectionView.reloadData()
         } failureBlock: {
             print("Error")
         }
         
-
         registerCells()
     }
     
     private func registerCells() {
         popularCollectionView.register(UINib(nibName: String(describing: BrandCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BrandCollectionViewCell.self))
     }
-
-
-
-    
 }
 
 
@@ -79,10 +56,6 @@ extension HomeController: UICollectionViewDataSource {
         brandCell.setupCell(brand: brandArray[indexPath.row])
         return brandCell
     }
-    
-    
-    
-    
 }
 
 extension HomeController: UICollectionViewDelegate {
