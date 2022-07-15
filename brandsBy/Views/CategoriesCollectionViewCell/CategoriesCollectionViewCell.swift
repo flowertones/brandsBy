@@ -10,6 +10,8 @@ import UIKit
 class CategoriesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryLabel: UILabel!
+    
+    private var categories = Category.allCases
     func setup(_ item: ListItem) {
 //        guard let categories = brandContent.categories else { return }
 //        for cat in categories {
@@ -20,9 +22,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         categoryLabel.layer.cornerRadius = categoryLabel.frame.height / 2
     }
     
-    func setupCategory(category: BrandContent) {
-        for cat in category.categories {
-             self.categoryLabel.text = cat
-         }
+    func setupCategory(category: Category) {
+        self.categoryLabel.text = category.text
     }
 }

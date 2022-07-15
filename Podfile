@@ -9,4 +9,5 @@ pod 'Moya'
 pod 'Moya-ObjectMapper’
 pod 'Realm'
 pod 'RealmSwift'
+pod 'SDWebImage'
 end

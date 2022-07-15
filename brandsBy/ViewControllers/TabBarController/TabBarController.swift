@@ -15,10 +15,14 @@ class TabBarController: UITabBarController {
     }
     
     private func setupControllers() {
-        let home = HomeController(nibName: String(describing: HomeController.self), bundle: nil)
-        let brandList = BrandListController(nibName: String(describing: BrandListController.self), bundle: nil)
-        let shop = ShopController(nibName: String(describing: ShopController.self), bundle: nil)
-        let favorites = FavoritesController(nibName: String(describing: FavoritesController.self), bundle: nil)
+        let home = UINavigationController(rootViewController: HomeController.loadFromNib())
+        let brandList = UINavigationController(rootViewController: BrandListController.loadFromNib())
+        let shop = UINavigationController(rootViewController: ShopController.loadFromNib())
+        let favorites = UINavigationController(rootViewController: FavoritesController.loadFromNib())
+
+//        let brandList = BrandListController(nibName: String(describing: BrandListController.self), bundle: nil)
+//        let shop = ShopController(nibName: String(describing: ShopController.self), bundle: nil)
+//        let favorites = FavoritesController(nibName: String(describing: FavoritesController.self), bundle: nil)
 
         let configuration = UIImage.SymbolConfiguration(weight: .light)
         

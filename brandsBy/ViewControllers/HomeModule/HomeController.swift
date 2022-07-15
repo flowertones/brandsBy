@@ -22,7 +22,7 @@ class HomeController: UIViewController {
         
         popularCollectionView.dataSource = self
         popularCollectionView.delegate = self
-        
+
 //        NetworkManager.getBrand { [weak self] result in
 //            guard let self = self else { return }
 //            self.nameLabel.text = result.name
@@ -41,6 +41,7 @@ class HomeController: UIViewController {
   
         NetworkManager.getBrand { brand in
             self.brandArray = brand
+            globalArrayBrand = brand
             print(self.brandArray.count)
             var allCategories = [String]()
             brand.forEach({ $0.categories.forEach({ allCategories.append($0)})})
@@ -53,7 +54,6 @@ class HomeController: UIViewController {
             print("Error")
         }
         
-
         registerCells()
     }
     
@@ -75,8 +75,8 @@ extension HomeController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BrandCollectionViewCell.self), for: indexPath)
         guard let brandCell = cell as? BrandCollectionViewCell else { return cell }
-        
-        brandCell.setupCell(brand: brandArray[indexPath.row])
+
+        brandCell.setupCell(brand: brandArray[indexPath.item])
         return brandCell
     }
     
@@ -87,8 +87,8 @@ extension HomeController: UICollectionViewDataSource {
 
 extension HomeController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ContentController(nibName: String(describing: ContentController.self), bundle: nil)
-        let item = brandArray[indexPath.row]
+        let vc = ContentController.loadFromNib()
+        let item = brandArray[indexPath.item]
         vc.brandContent = item
         navigationController?.pushViewController(vc, animated: true)
     }

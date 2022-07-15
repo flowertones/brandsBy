@@ -12,7 +12,8 @@ class BrandContent: Mappable, CustomDebugStringConvertible {
     
     var id = 0
     var name = ""
-    var shops = [Shops?]()
+    var image = ""
+    var shops: [Shops]?
     var description: String?
     var instagram: String?
     var website: String?
@@ -26,6 +27,7 @@ class BrandContent: Mappable, CustomDebugStringConvertible {
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
+        image <- map["image"]
         shops <- map["shops"]
         description <- map["description"]
         instagram <- map["instagram"]

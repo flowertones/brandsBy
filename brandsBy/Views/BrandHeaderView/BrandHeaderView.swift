@@ -11,6 +11,7 @@ class BrandHeaderView: UICollectionReusableView {
     
     static let identifier = "BrandHeaderView"
     
+    
     private let headerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
