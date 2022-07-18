@@ -46,8 +46,8 @@ class Shops: Mappable {
     var city: String?
     var address: String?
     var hours: String?
-    var latitude: Int?
-    var longitude: Int?
+    var latitude: Double?
+    var longitude: Double?
     
     required init?(map: Map) {
         mapping(map: map)

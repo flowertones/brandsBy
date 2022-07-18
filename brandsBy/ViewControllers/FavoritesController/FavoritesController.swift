@@ -6,20 +6,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavoritesController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
-//    var favorites = RealmManager.read() {
+        
     var favorites: [RealmContent] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     var brandContent: BrandContent?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "избранное"
         collectionView.dataSource = self
         collectionView.delegate = self
         registerCells()
@@ -58,31 +60,23 @@ extension FavoritesController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BrandCollectionViewCell.self), for: indexPath)
         guard let brandCell = cell as? BrandCollectionViewCell else { return cell }
         
-//
-//        var brandArray: [BrandContent] = []
-//
-//        for brand in 0...favorites.count - 1 {
-//            let id = favorites[brand].id
-//            if let brand = globalArrayBrand.first(where: { $0.id == id}) {
-//                brandArray.append(brand)
-//            }
-//        }
-//
         brandCell.setupFavoriteCell(brand: favorites[indexPath.item])
-        
+//        brandCell.brandImageView.sd_setImage(with: URL(string: favorites[indexPath.item].image))
+//        brandCell.brandImageView.contentMode = .scaleAspectFill
         
         
 //        brandCell.brandNameLabel.text = "\(favorites[indexPath.item].name)"
 //        brandCell.brandImageView.image = UIImage(named: "image2")
 
         brandCell.favoritesButton.tag = 1
-        if DefaultsManager.favorites {
-            brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        }
-
-        if DefaultsManager.notFavorites {
-            brandCell.favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//        if DefaultsManager.favorites {
+//            brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//        }
+//
+//        if DefaultsManager.notFavorites {
+//            brandCell.favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//        }
 //        brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         brandCell.deleteThisCell = { [weak self] in
             RealmManager.delete(object: (self?.favorites[indexPath.item])!)
@@ -94,9 +88,16 @@ extension FavoritesController: UICollectionViewDataSource {
 
 extension FavoritesController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = ContentController.loadFromNib()
-//        let item = brandArray[indexPath.item]
-//        vc.brandContent = item
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = ContentController.loadFromNib()
+        let brand = globalArrayBrand.first{ $0.name == favorites[indexPath.row].name}
+        vc.brandContent = brand
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension FavoritesController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width/2 - 10, height: 270)
     }
 }

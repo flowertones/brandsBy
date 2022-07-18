@@ -29,10 +29,18 @@ class RealmManager {
 //            realm.delete(object)
 //        })
 //}
+    static func deleteFromName(objectName: String) {
+        let data = read()
+        guard let objectToDelete = data.filter({ $0.name == objectName}).first else { return }
+        
+        try? realm.write({
+            realm.delete(objectToDelete)
+        })
+    }
     
     static func delete(object: RealmContent) {
         let data = read()
-        guard let objectToDelete = data.filter({ $0.id == object.id}).first else { return }
+        guard let objectToDelete = data.filter({ $0.name == object.name}).first else { return }
         
         try? realm.write({
             realm.delete(objectToDelete)

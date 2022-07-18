@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapController" customModule="brandsBy" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="DhH-f3-oYD" id="yGw-Yn-2Gc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhH-f3-oYD" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btg-yb-5qR">
+                    <rect key="frame" x="334" y="702" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Gim-DN-cml"/>
+                        <constraint firstAttribute="width" constant="60" id="rzU-MX-XaK"/>
+                    </constraints>
+                    <buttonConfiguration key="configuration" style="plain" image="default_marker.png">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="myLocationAction:" destination="-1" eventType="touchUpInside" id="KRd-4b-7Zw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DhH-f3-oYD" secondAttribute="bottom" id="A2j-Vz-m5R"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DhH-f3-oYD" secondAttribute="trailing" id="BNS-Et-Lqs"/>
+                <constraint firstItem="DhH-f3-oYD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DKN-7Y-u7h"/>
+                <constraint firstItem="DhH-f3-oYD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DfO-QR-SPc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Btg-yb-5qR" secondAttribute="trailing" constant="20" id="nWd-dx-yku"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Btg-yb-5qR" secondAttribute="bottom" constant="100" id="r58-wP-R0L"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="default_marker.png" width="26" height="41"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

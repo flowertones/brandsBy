@@ -10,4 +10,6 @@ pod 'Moya-ObjectMapper’
 pod 'Realm'
 pod 'RealmSwift'
 pod 'SDWebImage'
+pod 'GoogleMaps'
+pod 'RevealingSplashView'
 end

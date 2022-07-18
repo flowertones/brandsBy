@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import RevealingSplashView
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+    
+    let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "bIcon")!, iconInitialSize: CGSize(width: 120 * UIScreen.main.bounds.width / 414.0, height: 120 * UIScreen.main.bounds.width / 414.0), backgroundColor: .white)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        revealingSplashView.startAnimation()
+        window?.rootViewController?.view.addSubview(revealingSplashView)
         return true
     }
 
