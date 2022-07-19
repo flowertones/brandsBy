@@ -12,20 +12,13 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     
     private var categories = Category.allCases
-//    func setup(_ item: ListItem) {
-////        guard let categories = brandContent.categories else { return }
-////        for cat in categories {
-////        categoryLabel.text = cat
-////        }
-//        categoryLabel.text = item.title
-//        categoryLabel.layoutIfNeeded()
-//        categoryLabel.layer.cornerRadius = categoryLabel.frame.height / 2
-//    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     func setupCategory(category: Category) {
         categoryLabel.text = category.text
-//        categoryLabel.layer.cornerRadius = categoryLabel.frame.height / 2
-//        categoryLabel.layer.borderWidth = 0.7
-//        categoryLabel.layer.borderColor = UIColor.darkGray.cgColor
     }
 }

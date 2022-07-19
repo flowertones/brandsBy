@@ -30,7 +30,6 @@ class FiltersViewController: UIViewController {
     private func setupNavigationButton() {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//            topItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: nil, action: nil)
         }
     }
 }
@@ -41,7 +40,6 @@ extension FiltersViewController: UITableViewDataSource {
         return filters.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FilterCell.self), for: indexPath) as! FilterCell
         cell.setupFiler(filter: filters[indexPath.row])
@@ -50,9 +48,6 @@ extension FiltersViewController: UITableViewDataSource {
 //            categoryCell.categoryLabel.layer.borderColor = UIColor.darkGray.cgColor
         return cell
     }
-    
-    
-    
 }
 
 extension FiltersViewController: UITableViewDelegate {

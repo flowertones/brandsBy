@@ -19,9 +19,18 @@ class ProfileContentCell: UITableViewCell {
     }
 
     func setupCell(brand: BrandContent) {
+        if brand.name == "KAZAKI" {
+            contentImageView.image = UIImage(named: "image3")
+        } else if brand.name == "INKA" {
+            contentImageView.image = UIImage(named: "image4")
+        } else {
         self.contentImageView.sd_setImage(with: URL(string: brand.image))
+        }
         self.contentImageView.contentMode = .scaleAspectFill
         self.contentNameLabel.text = brand.name
     }
+    
+    
+    
     
 }

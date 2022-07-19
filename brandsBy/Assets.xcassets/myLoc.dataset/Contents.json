@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "data" : [
     {
+      "filename" : "icons8-address.gif",
       "idiom" : "universal"
     }
   ],

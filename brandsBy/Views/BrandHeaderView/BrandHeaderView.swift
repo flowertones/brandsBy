@@ -16,7 +16,7 @@ class BrandHeaderView: UICollectionReusableView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "image2")
+        imageView.image = UIImage(named: "headerImage")
         return imageView
     }()
     

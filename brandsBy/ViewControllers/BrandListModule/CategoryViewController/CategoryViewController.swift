@@ -40,7 +40,6 @@ class CategoryViewController: UIViewController {
     private func setupNavigationButton() {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//            topItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: nil, action: nil)
         }
     }
 }
@@ -55,9 +54,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrandCollectionViewCell", for: indexPath) as! BrandCollectionViewCell
         cell.setupCell(brand: categoryBrand[indexPath.item])
-        
         cell.favorites = RealmContent(name: categoryBrand[indexPath.item].name)
-        
         
         let favorites = categoryBrandRealm.first { $0.name == categoryBrand[indexPath.row].name}
         if favorites == nil {
@@ -67,7 +64,6 @@ extension CategoryViewController: UICollectionViewDataSource {
         }
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

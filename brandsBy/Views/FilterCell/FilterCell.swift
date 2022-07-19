@@ -19,9 +19,6 @@ class FilterCell: UITableViewCell {
     
     func setupFiler(filter: Category) {
         filterLabel.text = filter.text
-//        categoryLabel.layer.cornerRadius = categoryLabel.frame.height / 2
-//        categoryLabel.layer.borderWidth = 0.7
-//        categoryLabel.layer.borderColor = UIColor.darkGray.cgColor
     }
     
 

@@ -30,7 +30,6 @@ class FavoritesController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        readData()
         favorites.removeAll()
         favorites = RealmManager.read()
     }
@@ -38,16 +37,6 @@ class FavoritesController: UIViewController {
     private func registerCells() {
         collectionView.register(UINib(nibName: String(describing: BrandCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BrandCollectionViewCell.self))
     }
-    
-//    private func readData() {
-//        guard let brandContent = brandContent else {
-//            return
-//        }
-//
-//        self.favorites = RealmManager.read().filter({ $0.id == brandContent.id})
-//    }
-
-
 }
 
 
@@ -59,25 +48,9 @@ extension FavoritesController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BrandCollectionViewCell.self), for: indexPath)
         guard let brandCell = cell as? BrandCollectionViewCell else { return cell }
-        
         brandCell.setupFavoriteCell(brand: favorites[indexPath.item])
-//        brandCell.brandImageView.sd_setImage(with: URL(string: favorites[indexPath.item].image))
-//        brandCell.brandImageView.contentMode = .scaleAspectFill
-        
-        
-//        brandCell.brandNameLabel.text = "\(favorites[indexPath.item].name)"
-//        brandCell.brandImageView.image = UIImage(named: "image2")
-
         brandCell.favoritesButton.tag = 1
         brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//        if DefaultsManager.favorites {
-//            brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//        }
-//
-//        if DefaultsManager.notFavorites {
-//            brandCell.favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
-//        }
-//        brandCell.favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         brandCell.deleteThisCell = { [weak self] in
             RealmManager.delete(object: (self?.favorites[indexPath.item])!)
             self?.favorites = RealmManager.read()

@@ -35,7 +35,6 @@ class BrandListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = createLayout()
@@ -47,18 +46,19 @@ class BrandListController: UIViewController {
             self.brandArray = brand
             globalArrayBrand = brand
             print(self.brandArray.count)
-//            var allCategories = [String]()
-//            brand.forEach({ $0.categories.forEach({ allCategories.append($0)})})
-//            print(Set(allCategories.map({$0})))
-//            let mySet = Set<String>()
-//            let myList = Array(mySet.union(allCategories.map({$0}))).map({ ListItem(title: $0, image: "")})
-//            global = ListSection.categories(myList)
             self.collectionView.reloadData()
         } failureBlock: {
             print("Error")
         }
-        
-        
+        registerCells()
+     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+        brandRealm = RealmManager.read()
+    }
+    
+    private func registerCells() {
         collectionView.register(UINib(nibName: String(describing: CategoriesCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: CategoriesCollectionViewCell.self))
         
         collectionView.register(UINib(nibName: String(describing: BrandCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: BrandCollectionViewCell.self))
@@ -68,13 +68,6 @@ class BrandListController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: String(describing: BrandHeaderView.self)
         )
-//        configureNavbar()
-     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
-        brandRealm = RealmManager.read()
-        
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
@@ -131,17 +124,6 @@ class BrandListController: UIViewController {
         return .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(180)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top )
     }
     
-//    private func configureNavbar() {
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
-//
-////        navigationController?.navigationBar.tintColor = .label
-//    }
-    
-//    @objc func search() {
-//        navigationItem.searchController = searchController
-//        title = "Поиск"
-//    }
-    
     private func initSearchController() {
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
@@ -152,7 +134,6 @@ class BrandListController: UIViewController {
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-//        brandArray.forEach({ $0.name.forEach({ brandNameArray.append($0)})})
         for brand in brandArray {
             brandNameArray.append(brand.name)
         }
@@ -183,7 +164,6 @@ extension BrandListController : UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch sections[indexPath.section] {
         case .filters:
@@ -208,28 +188,23 @@ extension BrandListController : UICollectionViewDelegate, UICollectionViewDataSo
             let firstDeclension = [1, 21, 31, 41, 51, 61, 71]
             let secondDeclension = [2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54, 62, 63, 64]
             
-            if  let _ = firstDeclension.filter({ $0 == brandArray.count}).first {
-                countBrandLabel = "бренд"
-            } else if let _ = secondDeclension.filter({ $0 == brandArray.count }).first {
-                countBrandLabel = "бренда"
-            } else {
-                countBrandLabel = "брендов"
-            }
-
-            if isFiltering {
-                if  let _ = firstDeclension.filter({ $0 == filteredBrand.count }).first {
+            func deslension(countArray: Int) {
+                if  let _ = firstDeclension.filter({$0 == countArray}).first {
                     countBrandLabel = "бренд"
-                } else if let _ = secondDeclension.filter({ $0 == filteredBrand.count }).first {
+                } else if let _ = secondDeclension.filter({$0 == countArray}).first {
                     countBrandLabel = "бренда"
                 } else {
                     countBrandLabel = "брендов"
                 }
-                
-                cell.categoryLabel.text = "\(filteredBrand.count) \(countBrandLabel)"
-                
             }
-            
-            cell.categoryLabel.text = "\(brandArray.count) \(countBrandLabel)"
+
+            if isFiltering {
+                deslension(countArray: filteredBrand.count)
+                cell.categoryLabel.text = "\(filteredBrand.count) \(countBrandLabel)"
+            } else {
+                deslension(countArray: brandArray.count)
+                cell.categoryLabel.text = "\(brandArray.count) \(countBrandLabel)"
+            }
             return cell
             
         case .content:
@@ -330,9 +305,6 @@ extension BrandListController: UISearchResultsUpdating, UISearchBarDelegate {
         })
 
     }
-    
-
-
 }
 
 

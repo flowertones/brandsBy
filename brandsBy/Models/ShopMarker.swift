@@ -10,4 +10,5 @@ import GoogleMaps
 
 class ShopMarker: GMSMarker {
     var shop: Shops?
+    var brand: BrandContent?
 }
