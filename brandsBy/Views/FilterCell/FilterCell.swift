@@ -10,7 +10,6 @@ import UIKit
 class FilterCell: UITableViewCell {
 
     @IBOutlet weak var filterLabel: UILabel!
-    
     private var filters = Category.allCases
 
     override func awakeFromNib() {
@@ -20,7 +19,4 @@ class FilterCell: UITableViewCell {
     func setupFiler(filter: Category) {
         filterLabel.text = filter.text
     }
-    
-
-    
 }

@@ -30,23 +30,4 @@ class NetworkManager {
             }
         }
     }
-    
-//    class func getBrand(successBlock: ((Shops) -> ())? , failureBlock: (() -> ())?) {
-//        provider.request(.getBrand) { result in
-//            switch result {
-//
-//            case .success(let response):
-//                guard let result = try? response.mapObject(Shops.self)
-//                else {
-//                    failureBlock?()
-//                    return
-//                }
-//                print("success")
-//                successBlock?(result)
-//            case .failure(_):
-//                print("no shops")
-//                  failureBlock?()
-//            }
-//        }
-//    }
 }

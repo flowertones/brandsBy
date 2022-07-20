@@ -18,7 +18,6 @@ class MapController: UIViewController {
     private var markers = [GMSMarker]()
     private var brandWithShops = [BrandContent]()
     private var shops = [Shops]()
-    private var nameShops = [String]()
     var brandContent: BrandContent?
     var nameLabelText: String?
     var categoryBrandRealm: [RealmContent] = []
@@ -38,7 +37,6 @@ class MapController: UIViewController {
                 brandWithShops.append(brand)
             }
         }
-        
         brandWithShops.forEach({ setupPoints(brand: $0)})
         centered()
     }
@@ -71,7 +69,9 @@ class MapController: UIViewController {
             markerView.layer.cornerRadius = self.view.layer.frame.width / 2
             marker.iconView = markerView
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.centeredCamera()
+        }
    }
     
     private func centeredCamera() {
@@ -104,7 +104,6 @@ class MapController: UIViewController {
     
 extension MapController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print(marker.title)
         self.navigationItem.title = marker.title
         guard let brand = brandWithShops.filter({ $0.name == marker.title }).first else { return false }
 
@@ -128,7 +127,6 @@ extension MapController: GMSMapViewDelegate {
 
 extension MapController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation], shop: Shops) {
-        
         guard let lat = shop.latitude,
               let long = shop.longitude else { return }
         let locValue = CLLocationCoordinate2D(latitude: lat, longitude: long)

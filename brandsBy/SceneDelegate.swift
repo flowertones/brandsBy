@@ -27,10 +27,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 var globalArrayBrand: [BrandContent] = []
-
-var global: ListSection = .categories([ListItem]()) {
-    
-    willSet {
-        print(newValue)
-    }
-}

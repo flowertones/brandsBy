@@ -23,5 +23,4 @@ class ShopsContentCell: UITableViewCell {
         addressLabel.text = shop.address
         hoursLabel.text = shop.hours
     }
-    
 }

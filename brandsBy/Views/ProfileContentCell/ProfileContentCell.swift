@@ -28,9 +28,5 @@ class ProfileContentCell: UITableViewCell {
         }
         self.contentImageView.contentMode = .scaleAspectFill
         self.contentNameLabel.text = brand.name
-    }
-    
-    
-    
-    
+    }  
 }

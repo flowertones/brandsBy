@@ -8,27 +8,11 @@
 import UIKit
 import Foundation
 
-
 extension UIViewController {
     class func loadFromNib() -> Self {
         func instantiateFromNib<T: UIViewController>() -> T {
             return T.init(nibName: String(describing: T.self), bundle: nil)
         }
-
         return instantiateFromNib()
     }
 }
-
-//extension UIViewController {
-//    static var identifier: String {
-//        return String(describing: self)
-//    }
-//    class func loadFromNib() -> Self {
-//        func instantiateFromNib<T: UIViewController>() -> T {
-//            return T.init(nibName: String(describing: T.self), bundle: nil)
-//        }
-//
-//        return instantiateFromNib()
-//    }
-//}
-

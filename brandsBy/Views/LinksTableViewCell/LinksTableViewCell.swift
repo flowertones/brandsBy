@@ -11,6 +11,7 @@ class LinksTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageViewCell: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -18,7 +19,6 @@ class LinksTableViewCell: UITableViewCell {
 }
 
 extension UITextView {
-
   func addHyperLinksToText(originalText: String, hyperLinks: [String: String]) {
     let style = NSMutableParagraphStyle()
     style.alignment = .left
@@ -30,7 +30,6 @@ extension UITextView {
         attributedOriginalText.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: fullRange)
         attributedOriginalText.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "HelveticaNeue-Thin", size: 15.0) ?? UIFont.boldSystemFont(ofSize: 15.0), range: fullRange)
     }
-    
     self.linkTextAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.black
     ]

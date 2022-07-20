@@ -34,7 +34,6 @@ class BrandContent: Mappable, CustomDebugStringConvertible {
         website <- map["website"]
         tg <- map["tg"]
         categories <- map["categories"]
-
     }
     
     var debugDescription: String {

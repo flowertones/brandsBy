@@ -7,35 +7,25 @@
 
 import Foundation
 import UIKit
+
 class DefaultsManager {
     private static let defaults = UserDefaults.standard
     
-    static var favorites: Bool {
-        get {
-            return defaults.bool(forKey: #function)
-        }
-        set {
-            defaults.setValue(newValue, forKey: #function)
-        }
-    }
-    
-    static var notFavorites: Bool {
-        get {
-            return defaults.bool(forKey: #function)
-        }
-        set {
-            defaults.setValue(newValue, forKey: #function)
-        }
-    }
-    
-//    static var brandShops: Any {
+//    static var favorites: Bool {
 //        get {
-//            return defaults.object(forKey: #function)
+//            return defaults.bool(forKey: #function)
 //        }
 //        set {
 //            defaults.setValue(newValue, forKey: #function)
 //        }
 //    }
-    
-
+//
+//    static var notFavorites: Bool {
+//        get {
+//            return defaults.bool(forKey: #function)
+//        }
+//        set {
+//            defaults.setValue(newValue, forKey: #function)
+//        }
+//    }
 }

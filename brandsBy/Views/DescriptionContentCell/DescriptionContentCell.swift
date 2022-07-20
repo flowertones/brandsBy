@@ -10,9 +10,9 @@ import UIKit
 class DescriptionContentCell: UITableViewCell {
 
     @IBOutlet weak var contentDescriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
-    
 }

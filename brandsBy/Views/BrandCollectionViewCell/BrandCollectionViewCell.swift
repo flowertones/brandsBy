@@ -75,13 +75,9 @@ class BrandCollectionViewCell: UICollectionViewCell {
             favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
             favoritesButton.tintColor = UIColor(named: "darkPeach")
             favoritesButton.tag = 0
-            RealmManager.deleteFromName(objectName: name)
             deleteThisCell?()
             FavoritesPopUp.showPopup(text: "\(name) удален из избранного", duration: 2, useTransparency: false)
             self.delegate?.reloadCell()
         }
-        
     }
-    
-
 }
