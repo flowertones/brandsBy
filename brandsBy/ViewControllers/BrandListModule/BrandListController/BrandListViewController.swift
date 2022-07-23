@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BrandListController: UIViewController {
+class BrandListViewController: UIViewController {
+
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -141,7 +142,7 @@ class BrandListController: UIViewController {
 }
 
 
-extension BrandListController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BrandListViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
@@ -283,13 +284,13 @@ extension BrandListController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension BrandListController: ReloadCell {
+extension BrandListViewController: ReloadCell {
     func reloadCell() {
         brandRealm = RealmManager.read()
     }
 }
 
-extension BrandListController: UISearchResultsUpdating, UISearchBarDelegate {
+extension BrandListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return

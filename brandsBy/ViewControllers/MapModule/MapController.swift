@@ -63,9 +63,9 @@ class MapController: UIViewController {
             let markerView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
             markerView.image = UIImage(named: "pinIcon")
             markerView.tintColor = .black
-            markerView.backgroundColor = UIColor(named: "lightPeach")?.withAlphaComponent(0.6)
+            markerView.backgroundColor = UIColor.lightPeach.withAlphaComponent(0.6)
             markerView.layer.borderWidth = 1.4
-            markerView.layer.borderColor = UIColor(named: "darkPeach")?.cgColor
+            markerView.layer.borderColor = UIColor.darkPeach.cgColor
             markerView.layer.cornerRadius = self.view.layer.frame.width / 2
             marker.iconView = markerView
         }

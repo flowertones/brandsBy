@@ -25,14 +25,13 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eB-7D-9mt">
                         <rect key="frame" x="16" y="292" width="240" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFc-Cx-asF">
-                        <rect key="frame" x="244" y="8" width="20" height="20"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFc-Cx-asF">
+                        <rect key="frame" x="222" y="0.0" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="UqY-AP-VcJ"/>
-                            <constraint firstAttribute="height" constant="20" id="XXd-v9-CdW"/>
+                            <constraint firstAttribute="width" constant="50" id="UqY-AP-VcJ"/>
+                            <constraint firstAttribute="height" constant="50" id="XXd-v9-CdW"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
@@ -46,12 +45,12 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="QbO-AN-rlx" firstAttribute="trailing" secondItem="kFc-Cx-asF" secondAttribute="trailing" constant="8" id="C44-k2-cxW"/>
+                <constraint firstItem="QbO-AN-rlx" firstAttribute="trailing" secondItem="kFc-Cx-asF" secondAttribute="trailing" id="C44-k2-cxW"/>
                 <constraint firstItem="QbO-AN-rlx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Cpf-n2-UDL"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9eB-7D-9mt" secondAttribute="bottom" constant="10" id="J18-nk-XMe"/>
                 <constraint firstItem="QbO-AN-rlx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KGJ-OV-KGt"/>
                 <constraint firstAttribute="trailing" secondItem="9eB-7D-9mt" secondAttribute="trailing" constant="16" id="RWW-Zt-ujn"/>
-                <constraint firstItem="kFc-Cx-asF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="XOI-ao-mMT"/>
+                <constraint firstItem="kFc-Cx-asF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XOI-ao-mMT"/>
                 <constraint firstAttribute="trailing" secondItem="QbO-AN-rlx" secondAttribute="trailing" id="idW-ev-YzV"/>
                 <constraint firstItem="9eB-7D-9mt" firstAttribute="top" secondItem="QbO-AN-rlx" secondAttribute="bottom" constant="20" id="mBg-4n-I1z"/>
                 <constraint firstItem="9eB-7D-9mt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="pPr-0D-FPA"/>

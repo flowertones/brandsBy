@@ -38,6 +38,8 @@ class BrandCollectionViewCell: UICollectionViewCell {
             brandImageView.image = UIImage(named: "image3")
         } else if brand.name == "INKA" {
             brandImageView.image = UIImage(named: "image4")
+        } else if brand.name == "tati.clothes" {
+            brandImageView.image = UIImage(named: "image2")
         } else {
         brandImageView.sd_setImage(with: URL(string: brand.image))
         }
@@ -65,7 +67,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
         
         if favoritesButton.tag == 0 {
             favoritesButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            favoritesButton.tintColor = UIColor(named: "darkPeach")
+            favoritesButton.tintColor = UIColor.darkPeach
             favoritesButton.tag = 1
             brandToSave.name = name
             RealmManager.save(object: brandToSave)
@@ -73,7 +75,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
             delegate?.reloadCell()
         } else {
             favoritesButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            favoritesButton.tintColor = UIColor(named: "darkPeach")
+            favoritesButton.tintColor = UIColor.darkPeach
             favoritesButton.tag = 0
             deleteThisCell?()
             FavoritesPopUp.showPopup(text: "\(name) удален из избранного", duration: 2, useTransparency: false)

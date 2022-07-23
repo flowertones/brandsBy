@@ -52,7 +52,7 @@
 		EB9D4F7E287C2A64004CB2E9 /* LinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9D4F7C287C2A64004CB2E9 /* LinksTableViewCell.xib */; };
 		EB9D4F80287CCF7E004CB2E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9D4F7F287CCF7E004CB2E9 /* Category.swift */; };
 		EB9D4F82287CD5D2004CB2E9 /* BrandSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9D4F81287CD5D2004CB2E9 /* BrandSections.swift */; };
-		EBABBADF2872431600C5D520 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABBADE2872431600C5D520 /* ListSection.swift */; };
+		EBB72B3B288C8EA9008EF6F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB72B3A288C8EA9008EF6F2 /* UIColor+Extension.swift */; };
 		EBC85E162873125700ADF931 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85E152873125700ADF931 /* UIViewController+Extension.swift */; };
 		EBC85E19287322AA00ADF931 /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85E17287322AA00ADF931 /* ContentController.swift */; };
 		EBC85E1A287322AA00ADF931 /* ContentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC85E18287322AA00ADF931 /* ContentController.xib */; };
@@ -114,7 +114,7 @@
 		EB9D4F7C287C2A64004CB2E9 /* LinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinksTableViewCell.xib; sourceTree = "<group>"; };
 		EB9D4F7F287CCF7E004CB2E9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EB9D4F81287CD5D2004CB2E9 /* BrandSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSections.swift; sourceTree = "<group>"; };
-		EBABBADE2872431600C5D520 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		EBB72B3A288C8EA9008EF6F2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		EBC85E152873125700ADF931 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EBC85E17287322AA00ADF931 /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		EBC85E18287322AA00ADF931 /* ContentController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentController.xib; sourceTree = "<group>"; };
@@ -353,6 +353,7 @@
 				EB99E9BB28698C3D008D0D86 /* UICollectionView+Extension.swift */,
 				EBC85E152873125700ADF931 /* UIViewController+Extension.swift */,
 				EB09332D287F66EE00AA81DA /* UIImage+Extension.swift */,
+				EBB72B3A288C8EA9008EF6F2 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -425,7 +426,6 @@
 		EBABBADC287242DE00C5D520 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				EBABBADE2872431600C5D520 /* ListSection.swift */,
 				EB9D4F7F287CCF7E004CB2E9 /* Category.swift */,
 				EB9D4F81287CD5D2004CB2E9 /* BrandSections.swift */,
 				EB7AA11428804B480014D606 /* ContentPoints.swift */,
@@ -614,6 +614,7 @@
 				EB5D8FAD28861E6800BDAE61 /* MapPopUp.swift in Sources */,
 				EB4FEE112882B1F4002ABE26 /* ShopController.swift in Sources */,
 				EBC85E162873125700ADF931 /* UIViewController+Extension.swift in Sources */,
+				EBB72B3B288C8EA9008EF6F2 /* UIColor+Extension.swift in Sources */,
 				EB9D4F80287CCF7E004CB2E9 /* Category.swift in Sources */,
 				EB15CD2F2882B4E000CE65DA /* MapController.swift in Sources */,
 				EB509D36287A2EC000C934D1 /* RealmContent.swift in Sources */,
@@ -632,7 +633,6 @@
 				EB9D4F7D287C2A64004CB2E9 /* LinksTableViewCell.swift in Sources */,
 				EB09332E287F66EE00AA81DA /* UIImage+Extension.swift in Sources */,
 				EB970B14285E7B88004AC7BB /* FavoritesController.swift in Sources */,
-				EBABBADF2872431600C5D520 /* ListSection.swift in Sources */,
 				EB5D8FA2288566F500BDAE61 /* FiltersViewController.swift in Sources */,
 				EB926E0E285F519000D7D976 /* BrandsAPI.swift in Sources */,
 			);

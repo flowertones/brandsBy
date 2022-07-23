@@ -30,9 +30,7 @@ extension UITextView {
         attributedOriginalText.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: fullRange)
         attributedOriginalText.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "HelveticaNeue-Thin", size: 15.0) ?? UIFont.boldSystemFont(ofSize: 15.0), range: fullRange)
     }
-    self.linkTextAttributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.black
-    ]
+    self.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
     self.attributedText = attributedOriginalText
   }
 }

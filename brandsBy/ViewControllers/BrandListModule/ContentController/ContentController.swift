@@ -36,7 +36,6 @@ class ContentController: UIViewController {
             favoritesButton.setTitle("УБРАТЬ ИЗ ИЗБРАННОГО", for: .normal)
         }
         
-        favoritesButton.tintColor = .black
         favoritesButton.layer.opacity = 0.7
         favoritesButton.layer.cornerRadius = 0
     }
@@ -75,7 +74,9 @@ class ContentController: UIViewController {
     private func setupNavigationButton() {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            topItem.backBarButtonItem?.tintColor = .black
+            topItem.backBarButtonItem?.tintColor = .label
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareTapped))
+            navigationItem.rightBarButtonItem?.tintColor = .label
         }
     }
     
@@ -98,7 +99,7 @@ class ContentController: UIViewController {
         }
     }
     
-    @IBAction func shareAction(_ sender: Any) {
+    @objc func shareTapped() {
         guard let brandContent = brandContent else {
             return
         }
@@ -194,7 +195,7 @@ extension ContentController: UITableViewDataSource {
             guard let linksCell = cell as? LinksTableViewCell else { return cell }
             let huperLinks: [String : String] = [textLinks[indexPath.row] : links[indexPath.row]]
             linksCell.textView.addHyperLinksToText(originalText: textLinks[indexPath.row], hyperLinks: huperLinks)
-            linksCell.imageViewCell.image = iconLinks[indexPath.row]
+            linksCell.imageViewCell.image = iconLinks[indexPath.row].withTintColor(.label)
             return linksCell
             
         case .shops:

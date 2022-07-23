@@ -40,6 +40,7 @@ class CategoryViewController: UIViewController {
     private func setupNavigationButton() {
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = .label
         }
     }
 }

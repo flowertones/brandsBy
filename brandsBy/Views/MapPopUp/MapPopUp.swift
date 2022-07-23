@@ -45,10 +45,10 @@ class MapPopUp: UIViewController {
     }
     
     private func setupPopup() {
-        self.viewPopUp.backgroundColor = UIColor(named:"lightPeach")!.withAlphaComponent(0.8)
+        self.viewPopUp.backgroundColor = UIColor.lightPeach.withAlphaComponent(0.8)
         self.viewPopUp.layer.cornerRadius = 3
         self.viewPopUp.layer.shadowRadius = 6
-        self.viewPopUp.layer.shadowColor = UIColor(named: "darkPeach")?.cgColor
+        self.viewPopUp.layer.shadowColor = UIColor.darkPeach.cgColor
         self.viewPopUp.layer.shadowOpacity = 3
         imageView.contentMode = .scaleAspectFill
         nameLabel.text = self.labelTitle

@@ -20,13 +20,12 @@ class TabBarController: UITabBarController {
         let favorites = UINavigationController(rootViewController: FavoritesController.loadFromNib())
 
         let configuration = UIImage.SymbolConfiguration(weight: .light)
-        map.tabBarItem.badgeColor = UIColor(named: "darkPeach")
-        tabBarController?.tabBar.unselectedItemTintColor = UIColor(named: "darkPeach")
-        tabBarController?.tabBar.selectedItem?.badgeColor = UIColor(named: "darkPeach")
-        
+            
         map.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house", withConfiguration: configuration), tag: 0)
         brandList.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass", withConfiguration: configuration), tag: 1)
         favorites.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart", withConfiguration: configuration), tag: 3)
+        
+        self.tabBar.tintColor = .darkPeach
         
         self.viewControllers = [brandList, map, favorites]
     }
